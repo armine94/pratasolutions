@@ -1,0 +1,29 @@
+
+#include <iostream>
+
+void reverse(int );
+
+int main(){
+    
+    int a;
+    std::cout << "enter number      " ;
+    std::cin >> a;
+    
+    reverse(a);
+    
+    return 0;
+}
+
+void reverse(int a){
+    
+    if((a < 10) && (a> -10)){
+        
+        std::cout << a ;
+    }
+    else{
+        
+        std::cout << a%10 ;
+        reverse(a/10);
+    }
+    
+}
