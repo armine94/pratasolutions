@@ -1,0 +1,55 @@
+#include <iostream>
+
+struct Stack{
+   int * ptr;
+   int min;
+};
+
+void push(Stack& , int& , int);
+int pop(Stack& , int&);
+int get_minimum(Stack*);
+
+int main()
+{
+    int size=0;
+    Stack obj;
+    
+    push(obj,size,4);
+    push(obj,size,10);
+    push(obj,size,2);
+    push(obj,size,25);
+    
+    std::cout<< pop(obj,size)<<"\n";
+    std::cout<< pop(obj,size)<<"\n";
+    
+    std::cout << "minimum element of Stack is "<<get_minimum(&obj) << std::endl;
+     
+    return 0;
+}
+
+void push(Stack& ar,int& size,int a){
+    if(size == 0){
+        ar.min=a;
+    }
+    if( ar.min >= a ){
+    ar.min = a;    
+    }
+    
+    ar.ptr[size++] =a;
+   
+}
+
+int pop(Stack& ob,int & size){
+    
+    if(size>0){
+        
+        return ob.ptr[--size];
+        
+    }
+    
+    return 123456789;
+}
+
+int get_minimum(Stack* arr){
+    return arr->min;
+}
