@@ -1,17 +1,34 @@
 #include <iostream>
-#include "stack.h"
+#include <map>
+#include <vector>
+#include <string>
+#include <cstring>
+#include "cube.h"
+#include <climits>
 
-int main()
-{
-    stack* obj = new stack(105);
-    
-    obj->push(4);
-    obj->push(5);
-    obj->push(6);
-    std::cout << obj->pop() << std::endl;
-    std::cout << obj->pop() << std::endl;
-    std::cout << obj->pop() << std::endl;    
-    std::cout << obj->pop() << std::endl;
-    obj->~stack();
-    return 0;
+int main () {
+	std::string str;
+	std::string rotate;
+	std::string deRotate;
+	std::cout<< "enter text" <<std::endl;
+	getline(std::cin,str);
+	//std::cin.get(str);
+	//std::cin.ignore(INT_MAX);
+	std::cout<< "enter encription rotate" <<std::endl;
+	std::cin>>rotate;
+	std::cout<< "enter decription rotete" <<std::endl;
+	std::cin>>deRotate;
+	CubeControler a;
+	
+	a.parseText(str);
+	a.encription(rotate);
+	if(rotate == deRotate){
+		a.decription(deRotate);
+	}
+	else {
+		a.decription(rotate);
+	}
+	a.read();	
+
+	return 0;
 }
