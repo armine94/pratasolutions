@@ -70,15 +70,15 @@ void Cube::lRotate(int index){
    		if(i == index ){
 		        std::map<std::string, char> &mMap = *it;
 			char tmp = mMap["100"];
-	        	mMap["100"] = mMap["110"];
-        		mMap["110"] = mMap["010"];
-	        	mMap["010"] = mMap["000"];
+	        	mMap["100"] = mMap["101"];
+        		mMap["101"] = mMap["001"];
+	        	mMap["001"] = mMap["000"];
         		mMap["000"] = tmp;
-	        	tmp = mMap["101"];
-        		mMap["101"] = mMap["111"];
+	        	tmp = mMap["110"];
+        		mMap["110"] = mMap["111"];
 	        	mMap["111"] = mMap["011"];
-	        	mMap["011"] = mMap["001"];
-        		mMap["001"] = tmp ;
+	        	mMap["011"] = mMap["010"];
+        		mMap["010"] = tmp ;
 		}
 		++i;
 	}
@@ -89,16 +89,16 @@ void Cube::rRotate(int index){
         for(std::vector<std::map<std::string, char> > :: iterator it = mVec.begin(); it != mVec.end(); ++it) {
                 if(i == index ){
                        	std::map<std::string, char> &mMap = *it;
-			char tmp = mMap["010"];
-		        mMap["010"] = mMap["110"];
-		        mMap["110"] = mMap["100"];
+			char tmp = mMap["001"];
+		        mMap["001"] = mMap["101"];
+		        mMap["101"] = mMap["100"];
         		mMap["100"] = mMap["000"];
 		        mMap["000"] = tmp;
 		        tmp = mMap["011"];
         		mMap["011"] = mMap["111"];
-        		mMap["111"] = mMap["101"];
-        		mMap["101"] = mMap["001"];
-        		mMap["001"] = tmp;
+        		mMap["111"] = mMap["110"];
+        		mMap["110"] = mMap["010"];
+        		mMap["010"] = tmp;
 			break;
 		}
 		++i;
@@ -110,15 +110,15 @@ void Cube::uRotate(int index){
         for(std::vector<std::map<std::string, char> > :: iterator it = mVec.begin(); it != mVec.end(); ++it) {
                 if(i == index ){
                         std::map<std::string, char> &mMap = *it;
-			char tmp = mMap["010"];
-	         	mMap["010"] = mMap["011"];
-       			mMap["011"] = mMap["001"];
-	        	mMap["001"] = mMap["000"];
+			char tmp = mMap["001"];
+	         	mMap["001"] = mMap["011"];
+       			mMap["011"] = mMap["010"];
+	        	mMap["010"] = mMap["000"];
         		mMap["000"] = tmp;
-		        tmp = mMap["110"];
-		        mMap["110"] = mMap["111"];
-		        mMap["111"] = mMap["101"];
-		        mMap["101"] = mMap["100"];
+		        tmp = mMap["101"];
+		        mMap["101"] = mMap["111"];
+		        mMap["111"] = mMap["110"];
+		        mMap["110"] = mMap["100"];
 		        mMap["100"] = tmp;
                 	break;
 		}
@@ -131,15 +131,15 @@ void Cube::dRotate(int index){
         for(std::vector<std::map<std::string, char> > :: iterator it = mVec.begin(); it != mVec.end(); ++it) {
                 if(i == index ){
                         std::map<std::string, char> &mMap = *it;
-        		char tmp = mMap["001"];
-		        mMap["001"] = mMap["011"];
-		        mMap["011"] = mMap["010"];
-		        mMap["010"] = mMap["000"];
+        		char tmp = mMap["010"];
+		        mMap["010"] = mMap["011"];
+		        mMap["011"] = mMap["001"];
+		        mMap["001"] = mMap["000"];
 		        mMap["000"] = tmp;
-		        tmp = mMap["101"];
-		        mMap["101"] = mMap["111"];
-		        mMap["111"] = mMap["110"];
-		        mMap["110"] = mMap["100"];
+		        tmp = mMap["110"];
+		        mMap["110"] = mMap["111"];
+		        mMap["111"] = mMap["101"];
+		        mMap["101"] = mMap["100"];
 		        mMap["100"] = tmp;
 			break;
                 }
@@ -318,7 +318,7 @@ void CubeControler:: decription(std::string str) {
 void Cube:: read() {
 	for(std::vector<std::map<std::string, char> > :: iterator it = mVec.begin(); it != mVec.end(); ++it) {
                 std::map<std::string, char> &mMap = *it;
-	        std::cout<<mMap["000"]<<mMap["100"]<<mMap["110"]<<mMap["010"]<<mMap["001"]<<mMap["101"]<<mMap["111"]<<mMap["011"]
-			       <<std::endl;
+	        std::cout<<mMap["000"]<<mMap["100"]<<mMap["110"]<<mMap["010"]<<mMap["001"]<<mMap["101"]<<mMap["111"]<<mMap["011"];
 	}
+	std::cout<<std::endl;
 }
